@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -35,51 +35,46 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: 'tabs/tabs.html'
   })
 
   // Each tab has its own nav history stack:
+ // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
+ .state('tab.comprar', {
+     url: '/comprar',
+     views: {
+       'comprar': {
+         templateUrl: 'comprar/comprar.html',
+         controller: 'ComprarCtrl as ctrl'
+       }
+     }
+   })
 
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
+   .state('tab.vender', {
+     url: '/vender',
+     views: {
+       'vender': {
+         templateUrl: 'vender/vender.html',
+         controller: 'VenderCtrl as ctrl'
+       }
+     }
+   })
 
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
-      }
-    }
-  });
+   .state('tab.cuenta', {
+     url: '/cuenta',
+     views: {
+       'cuenta': {
+         templateUrl: 'cuenta/cuenta.html',
+         controller: 'CuentaCtrl as ctrl'
+       }
+     }
+   });
 
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+ // if none of the above states are matched, use this as the fallback
+ $urlRouterProvider.otherwise('/tab/comprar');
 
-});
+
+
+ });
+
